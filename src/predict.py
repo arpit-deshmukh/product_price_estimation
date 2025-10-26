@@ -25,6 +25,9 @@ def train_model():
     model = LinearRegression()
     model.fit(X_train, y_train)
     score = model.score(X_test, y_test)
+
+    import os
+    os.makedirs('model', exist_ok=True)
     joblib.dump((model, encoder, scaler), 'model/sklearn_price_model.pkl')
     return score
 
